@@ -1,0 +1,109 @@
+{% extends 'common/basePage.html' %}
+
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Feed</title>
+    
+    
+    <style>
+        /* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container for the job feed */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section */
+.user-profile {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.profile-pic img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* User Info */
+.user-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.user-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.user-info strong {
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+    </style><!-- Link to your CSS file -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to the Job Feed</h1>
+
+        <div class="user-profile">
+            <!-- Profile Picture -->
+            <div class="profile-pic">
+                <img src="{{ user_profile.profile_pic.url }}" alt="Profile Picture of {{ user_profile.user.username }}">
+            </div>
+
+            <!-- User Information -->
+            <div class="user-info">
+                <h2>{{ user_profile.user.username }}</h2>
+                <p><strong>Designation:</strong> {{ user_profile.designation }}</p>
+                <p><strong>Career Summary:</strong> {{ user_profile.career_summary }}</p>
+                <p><strong>Age:</strong> {{ user_profile.age }}</p>
+                <p><strong>Gender:</strong> {{ user_profile.get_gender_display }}</p>
+                <p><strong>Date of Birth:</strong> {{ user_profile.date_of_birth }}</p>
+                <p><strong>Contact No:</strong> {{ user_profile.contact_no }}</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+    
+{% endblock body %}
