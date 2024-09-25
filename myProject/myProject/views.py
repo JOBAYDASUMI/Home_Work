@@ -87,5 +87,7 @@ def registerPage(req):
 # This is authencation part end
 
 def JobFeedPage(req):
+
+    
     
     return render(req,'myAdmin/JobFeedPage.html')
